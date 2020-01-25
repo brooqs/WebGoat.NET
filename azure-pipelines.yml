@@ -1,0 +1,15 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- script: docker run -ti --rm --volume $PWD/WebGoat.NET:/tmp/app -w /tmp/app microsoft/dotnet:dotnet add src/WebGoat.NET/WebGoat/WebGoat.NET.csproj package SecurityCodeScanVS2017
+  displayName: 'Run Scanner'
+
