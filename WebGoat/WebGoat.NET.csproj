@@ -49,7 +49,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="SecurityCodeScan" Version="3.4.0" PrivateAssets="all" />
+<PackageReference Include="SecurityCodeScan" Version="3.4.0">
+  <PrivateAssets>all</PrivateAssets>
+  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+</PackageReference>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-preview.2" PrivateAssets="All" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
