@@ -10,6 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: docker run --rm --volume $PWD/WebGoat.NET:/tmp/app -w /tmp/app microsoft/dotnet:dotnet add src/WebGoat.NET/WebGoat/WebGoat.NET.csproj package SecurityCodeScanVS2017
+- script: docker run --rm --volume $PWD/WebGoat.NET:/tmp/app -w /tmp/app microsoft/dotnet:runtime add src/WebGoat.NET/WebGoat/WebGoat.NET.csproj package SecurityCodeScanVS2017
   displayName: 'Run Scanner'
 
