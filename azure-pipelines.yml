@@ -10,8 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: CHDIR
-- script: DIR
+- script: pwd
+- script: ls
   displayName: 'SHOW WORKING DIR'
 #- powershell: dotnet add WebGoat\WebGoat.NET.csproj package SecurityCodeScan.VS2017 --version 3.4.0
 #- script: docker run --rm --volume %cd%\WebGoat:C:\app -w c:\app microsoft/dotnet:runtime add src/WebGoat.NET.csproj package SecurityCodeScanVS2017
