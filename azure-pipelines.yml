@@ -14,6 +14,6 @@ steps:
 - script: DIR
   displayName: 'SHOW WORKING DIR'
 
-- script: docker run --rm --volume $PWD/WebGoat:/tmp/app -w /tmp/app microsoft/dotnet:runtime add src/WebGoat.NET.csproj package SecurityCodeScanVS2017
+- script: docker run --rm --volume %cd%\WebGoat:C:\app -w c:\app microsoft/dotnet:runtime add src/WebGoat.NET.csproj package SecurityCodeScanVS2017
   displayName: 'Run Scanner'
 
