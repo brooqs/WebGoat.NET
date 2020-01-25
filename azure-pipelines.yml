@@ -11,6 +11,7 @@ pool:
 
 steps:
 - script: CHDIR
+- script: DIR
   displayName: 'SHOW WORKING DIR'
 
 #- script: docker run --rm --volume $PWD/WebGoat.NET:/tmp/app -w /tmp/app microsoft/dotnet:runtime add src/WebGoat.NET/WebGoat/WebGoat.NET.csproj package SecurityCodeScanVS2017
