@@ -1,15 +1,3 @@
-# Starter pipeline
-- task: Security static source code analysis@2019
-  inputs:
-    CheckmarxService: 'checkmarxIntegration'
-    projectName: 'DemoProj'
-    preset: 'Checkmarx Default'
-    fullTeamName: 'Demo'
-    incScan: true
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -17,12 +5,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Security static source code analysis@2019
+  inputs:
+    CheckmarxService: 'checkmarxIntegration'
+    projectName: 'DemoProj'
+    preset: 'Checkmarx Default'
+    fullTeamName: 'Demo'
+    incScan: true
 - script: pwd
 - script: ls -alh
   displayName: 'SHOW WORKING DIR'
-#- powershell: dotnet add WebGoat\WebGoat.NET.csproj package SecurityCodeScan.VS2017 --version 3.4.0
-#- script: docker run --rm --volume %cd%\WebGoat:C:\app -w c:\app microsoft/dotnet:runtime add src/WebGoat.NET.csproj package SecurityCodeScanVS2017
-- script: docker run --rm --volume $PWD:/tmp/app -w /tmp/app mcr.microsoft.com/dotnet/core/sdk:3.1 dotnet add WebGoat/WebGoat.NET.csproj package SecurityCodeScan.VS2017 --version 3.4.0 && ls -lah && sudo chown -R vsts:vsts * && dotnet add WebGoat/WebGoat.NET.csproj package SecurityCodeScan.VS2017 && cd WebGoat && msbuild
-  displayName: 'Pre Build'
-#- script: msbuild
-#  displayName: 'Building'
